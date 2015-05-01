@@ -1,0 +1,111 @@
+#Screen 1 *Main screen
+#screen create an account
+	Maybe a checkbox for admin. If clicked then the user will be an admin, if not, then he will be just a usual user.
+
+
+#Screen 2 *Logged in.					There should be a different screen, if an admin logs in. For now, just a blank screen? To check if it's an admin -  fileLoader.getUserType(username);
+	My wishes     #3
+	New wish      #5
+	Log out       goes back to main screen
+
+#Screen 3 *My wishes
+	Show a list of all my wishes, like a button, with a name for example [CPH - BKK],
+	and then you can press to go to screen #4
+        Go back button.
+#screen 4 details about a specific wish
+	The same info as New wish, only at the bottom there should be like:
+		offer price: []
+	And a list of add-ons with offered prices next to them
+	maybe a delete button?
+	
+
+
+
+#screen 5 New wish
+	From   [] //Drop down list of available airports
+	To     [] //Drop down list of available airports
+	max price []
+	Date of departue []
+	+/- days for date of departure  []
+	Date of return			[]
+	+/- days for date of return	[]
+	Number of people		[]
+	Contact before any booking   yes/no
+	Reserve without paying	     yes/no
+	Pay immidiately		     yes/no
+	
+	List of add-on wishes, with a checkbox next to them?
+	...	
+	...
+	...
+	...
+	
+	
+-------------------------------FileLoader usage------------------------------------------
+
+
+	InterfaceILoader fileLoader = new FileLoader();
+//Before any usage call this:
+	fileLoader.load();
+
+
+
+fileLoader.tryLogin(String username, String password);
+	returns 0 if successfuly logged in, returns 1 if something went wrong.
+
+fileLoader.getUserType(String username);
+	returns 0 if its a user, returns 1 if an admin
+
+fileLoader.getWishes(String username);
+	returns an array of strings with from-to and date. Example: "CPH-BKK 05.04.2015".
+
+fileLoader.getFromAirport(username, numberOfWish);			
+	returns a string of departure airport
+
+	//Number of wish is the number(int), from wish list. From getWishes you get an array of all the wishes, and the numbers are the same.
+	//username is a String 
+
+fileLoader.getToAirport(username, numberOfWish);
+	returns a string of arrival airport
+
+fileLoader.getFlightMaxPrice(username, numberOfWish);
+	returns a string of max price for flight
+
+fileLoader.getDateOfDeparture(username, numberOfWish);
+	returns a string of departure date
+
+fileLoader.getDateOfReturn(username, numberOfWish);
+	returns a string of return date
+
+fileLoader.getDepartureAverageDays(username, numberOfWish);
+	returns a string of +/- days for departure date
+
+fileLoader.getReturnAverageDays(username, numberOfWish);
+	returns a string of +/- days for return date
+
+fileLoader.getNumberOfPeople(username, numberOfWish);
+	returns a int of people on the wish
+
+fileLoader.getContactBeforeBooking(username, numberOfWish);
+	Returns int 0 - no, 1 - yes
+
+fileLoader.getReserveWithoutPaying(username, numberOfWish);
+	Returns int 0 - no, 1 - yes
+
+fileLoader.getPayImmidiately(username, numberOfWish);
+	Returns boolean.  0 - no, 1 - yes
+
+fileLoader.getAddons(username, numberOfWish);
+	Returns an array of strings. Each string is like "Elephant tour - 2890Kr"
+
+fileLoader.getAddonsOfferPrices(username, numberOfWish);
+	returns an array of strings - prices for each specific Add-on
+
+
+
+//When the user creates a new wish, then just call this function.... Yea, it's a long-ass function. It's still under development...
+															+/- days for dep.               +/- days for return						0 or 1               0 or 1                   0 or 1
+fileLoader.makeNewWish(username, String FromAirport, String ToAirport, String DepartureDate, String ReturnDate, String DepartureAverageDays, String ReturnAverageDays, int MaxPrice, int NumberOfPeople, int ContactBeforeBooking, int ReserveWithoutPaying, int PayImmidiately, array of int Addons, array of int AddonPrices);
+
+//To delete a wish
+fileLoader.deleteWish(username, numberOfWish);
