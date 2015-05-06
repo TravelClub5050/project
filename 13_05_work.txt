@@ -1,0 +1,10 @@
+-dynaton resignation
+
+
+-system diagram, at least 10 use cases.
+-2 fully dressed use cases -Kaspars -Adam [Create wish(Adam) / Edit wish]
+-2 briefly dressed -Oliver -Paul [Create account(Paul) / Make payment(Oliver)]
+-1 SSD -Next week Wed. 10
+-2 domain models -Next week 
+-1 DCD (what is that?) for a domain model -next week
+-GRASP responsibilities -next week
