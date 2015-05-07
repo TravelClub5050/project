@@ -1,0 +1,1 @@
+The user opens the registration form and fills in his personal details. The system verifies that the information provided meets expected criteria, records the details and provides confirmation of the registration.
