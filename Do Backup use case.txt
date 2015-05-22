@@ -1,0 +1,3 @@
+UC#8: Do backup
+
+Administrator open system and log in into his account. He press "Backup" button and log out from his account.
